@@ -1,5 +1,5 @@
 Product View Compendium(10/28/2022)
-Created by Jesse McNary and Joel Duggins. With help from Christopher Moore.
+Created by Jesse McNary. With help from Christopher Moore.
 
 	The Product View Compendium or PVC for short is a tool to aid purchasers during item pursuit. The idea behind the  
 project was to create a system that allowed purchasers to be able to show venue employees important item information to help find items faster and with ease.
