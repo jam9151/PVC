@@ -1,0 +1,53 @@
+Jesse McNary 3/20/2023
+
+imports {os,sys,datetime}
+
+Preface: The purpose of the settings file is to declare 
+    variables that will be used throughout the entire system
+There are no functions in this module.
+
+variables{
+    //variabels for file extensions
+    jpg - type string - value('.jpg')
+    png - type string - value('.png')
+    txt - type string - value('.txt')
+    html- type string - value('.html')
+
+    //variables for dates
+    today - type string - the current date and time
+
+    //variables for file suffix
+    frontofBox - type string - value('_front')
+    backOfBox - type string - value('_back')
+    sideOfBox - type string - value('_side')
+    angleOfBox - type string - value('_angle')
+    barcodePhotoSuf - type string - value('_barcode')
+    adSuf - type string - value('_ad')
+    pageSuf - type string - value('_page')
+
+    //variables for system pathing
+    cwd - type string - value(current working directory)
+    pops - type String - value(parent directory to cwd)
+    grandpops - type string - value(parent directory to pops)
+    greatGrandPops - type string - value(parent dictionary to grandpops)
+
+    pathToLogs - type string - value(value of pops + "logs")
+    pathToSystemLogs - type string - value(value of pathToLogs + "systemLogs")
+    pathTosystemLogsTextFile - type string - value(value of pathToSystemLogs + today + txt )
+
+    pathToShutilLogs - type string - value(value of pathToLogs + "shutilLogs")
+    pathToShutilLogsTextFile - type string - value(value of pathToShutilLogs + today + txt)
+
+    pathToUpcImagesDir - type string - value(value of pops + "siteData/images")
+    pathToProductsDir - type string - value(value of pops + "siteData/products")
+    pathToHtmlTemp - type string - value(value of cwd + "template.html")
+
+    pathToBarcodeSheet - type string - value(value of pops + "siteData/barcodeSheet/barcodeSheet.html")
+    pathToCssData - type string - value("barcodeSheetData" + "cssData.txt")
+    pathToJsForBcSheet - type string - value("barcodeSheetData" + "jsForBcSheet.txt")
+    pathToJsForSearchBar - type string - value("barcodeSheetData" + "jsForSearchBar.txt")
+
+    pathToNas - type string - value(grandpops + "product_photo_inbox")
+    
+}
+

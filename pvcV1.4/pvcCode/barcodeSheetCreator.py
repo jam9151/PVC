@@ -33,9 +33,14 @@ def upcBarcodeCreator(upcList, dfDict, priceDict, valueDict, qtyDict):
 			
 			#fout.write(f" <div id={item}>\n<left>{dict.get(item)}</left>")
 			fout.write(f"<div id={item}>\n\t<button type=\"button\" class=\"collapsible\"> {dfDict.get(item)}({item})</button>\n\t<div class=\"content\">")
-			fout.write(f"\n\t\t<p><h3>{dfDict.get(item)}</h3>\n\t\t<h3>{priceDict.get(item)}\n\t\t<h3>Value: {valueDict.get(item)}</h3>\n\t\t<h3>QTY: {qtyDict.get(item)}</h3>")
+			
+			fout.write(f"\n\t\t<p><h3>{dfDict.get(item)}</h3>\n\t\t<h3>{priceDict.get(item)}\n\t\t<h3>Value: {valueDict.get(item)}</h3>\n\t\t<h3>QTY: {qtyDict.get(item)}</h3>\n\t\t<h4><a href=https://data.sojournerlogistics.com/siteData/products/"+str(item)+"_page.html>"+str(item) + " Photo Link" + "</a>"+"</h4>")
+			
 			fout.write(f"\n\t\t<img src=\"../images/{item}/{item}_barcode.png\" width=\"225\" height=\"150\"\n") 
+			# fout.write(f"\t\thttps://data.sojournerlogistics.com/siteData/products/"+str(item)+"_page.html") 
+			
 			fout.write("\t\tonerror=\"this.style.display='none'\"</p>\n\n")
+			
 			fout.write("\n</div>\n\n")
 			'''
 			if(i == (len(upcList) // 3)):

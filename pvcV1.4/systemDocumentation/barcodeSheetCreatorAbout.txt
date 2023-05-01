@@ -1,0 +1,36 @@
+Jesse McNary 3/20/2023
+
+Imports {settings,os,check_toolV1,datetime}
+
+Preface: 
+The idea behind this module is to create an html page which contains every 
+single automaticly generated barcode from the barcode creator module.
+
+functions(){
+
+	upcBarcodeCreator(upcList,dfDict,priceDict,valueDict,qtyDict){
+		fields and psuedocode{
+	
+			cssData - type string - value(contents from cssData.txt. Used to import the .css needed for barcodeSheet.html)
+			js - type string - value(contents from jsForBcSheet.txt. Used to import the .js needed for barcodeSheet.html)
+			jsForSb - type string - value(conents from jsForSearchBar.txt. Used to import the .js needed for the search bar in barcodeSheet.html)
+
+			upcList - type set - value(set of all upcs that are currently being purchased from the "New SL Purchasing sheet")
+			dfDict - type dictionary - value(key: upcList | pair: column C(Item discription)) 
+			priceDict - type dictionary - value(key: upcList | pair: column F(Price))
+			valueDict - type dictionary - value(key: upcList | pair: column G(Value))
+			qtyDict - type dictionary - value(key: upcList | pair: column B(Qty))
+		}
+	}
+
+}
+
+
+
+
+
+
+
+
+
+

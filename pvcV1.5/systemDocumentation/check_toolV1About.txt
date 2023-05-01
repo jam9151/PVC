@@ -1,0 +1,82 @@
+Jesse McNary 3/20/2023
+
+import {sys, os, numpy, pandas, settings}
+
+Preface: check_toolV1 contains 3 functions, the purpose of which is parse the main sl puchasing sheet into different dictionaries
+
+functions and fields(){
+   checkToolData(){
+        fields and psuedocode{
+            xlsxFile - type string - value('psheet.xlsx')
+            xlsxFileDataframe - type pandas dataframe - value(xlsxFile, sheet named 'Walmart')
+            df - type pandas dataframe - value(first 300 rows)
+            dfFiltered - type pandas dataframe - value(df that has been filtered to only have columns 7 with prefered values and 10 with prefered values)
+			
+            dfDict - type dictionary - value(key: Column K(upc list) | pair: column C(Item discription)) 
+			priceDict - type dictionary - value(key:Column K(upc list) | pair: column F(Price))
+			valueDict - type dictionary - value(key: Column K(upc list) | pair: column G(Value))
+			qtyDict - type dictionary - value(key: Column K(upc list) | pair: column B(Qty))
+
+            upcList - type list - value(Column K (UPCs))
+
+            strip every item in upcList of whitespace
+
+            return dfDict, priceDict, valueDict, qtyDict
+        }
+    dataResult - type list - value(returned data from checkToolData)
+    
+    dfDict - type dictionaries - value(first value of dataResult)
+    priceDict - type dictionarie - value(second value of dataResult)
+    valueDict - type dictionarie - value(third value of dataResult)
+    qtyDict - type dictionarie - value(fourth value of dataResult)
+    
+    upcList - type set - value(the key values of dfDict (the UPC numbers))
+    
+    }   
+    checkTool(path, upcList, suf,ext){
+        fields and psuedocode{
+            path - type string - value(any path from settings.py module or automaticly generated path)
+            upcList - type set - value(All upcs currently being purchased from sl purchasing sheet)
+            suf - type string - value(any suffix from settings.py module)
+            ext - type string - value(any extension from settings.py module)
+
+            returnList - type list - value(null)
+
+            if path does not equal pathToProductsDir from the settings module
+                iterate every item in upcList   
+                    pathToPhoto - type string - value(path + item + (item + suf + ext))
+                    tfPhoto - type boolean - value(if pathToPhoto exists, true, else false)
+
+                    if tfPhoto is False 
+                        add item to returnList
+            else
+                iterate every item in upcList
+                    pathToPhoto - type string - value(path + item + (item + suf + ext))
+                    tfPhoto - type boolean - value(if pathToPhoto exists, true, else false)
+
+                    if tfPhoto is false
+                        add item to returnList
+            return returnList
+
+            
+        }
+    
+    }
+    checkForNas(path, upcList, suf, ext){
+        path - type string - value(any path from settings.py module or automaticly generated path)
+        upcList - type set - value(All upcs currently being purchased from sl purchasing sheet)
+        suf - type string - value(any suffix from settings.py module)
+        ext - type string - value(any extension from settings.py module)
+
+        listForSorting - type set - value(null)
+
+        iterate every item in upcList
+            pathToPhoto - type string - value(path + (item + suf + ext))
+            tfPhoto - type boolean - value(if pathToPhoto exists, true, else false)
+
+            if tfPhoto is True 
+                add item to listForSorting
+        return listForSorting
+    }
+    
+}

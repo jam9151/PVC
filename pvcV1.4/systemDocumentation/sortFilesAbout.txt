@@ -1,0 +1,31 @@
+Jesse McNary 3/20/2023
+
+imports {check_toolV1, settings, os, shutil}
+
+Preface: sortFiles.py contains 1 function thats purpose is to 
+    moves files linearly from the NAS folder to the appropriate siteData subdirectories
+
+functions(){
+    sortFiles(path,upcList,suf,ext){
+        fields and psuedocode{
+            shutiledItems - type set - value(null)
+            upcList - type set - value(All upcs currently being purchased from sl purchasing sheet)
+            suf - type string - value(any suffix from settings.py module)
+            ext - type string - value(any extension from settings.py module)
+            path - type string - value(string path most likely from settings.py)
+            
+            loop over every item in upcList
+                newPathToImagesDir - type string - value(settings.pathToUpcImagesDir + string(itereated item from upcList))
+                pathToPhoto - type string - value(path + item as string + suf + ext)
+                finalDes - type string - value(newPathToImagesDir + item as string + suf + ext)
+
+                isFile - type boolean - value(checks if path exists, returns True if it does, False else)
+
+        }
+    Once the files are moved the functions checks if the file was transfered over then deletes the file,
+        else it throws an error message ("Error, files did not transfer")
+    
+    }
+
+}
+

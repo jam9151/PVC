@@ -1,0 +1,46 @@
+Jesse McNary 3/20/2023
+
+import {settings, os, check_toolV1, pandas}
+
+Preface: pageCreator.py contains 2 functions, upcDirCheck and upcHtmlCreator.
+
+functions(){
+    upcDirCheck(path, upclist){
+       fields and psuedocode{
+           path - type string - value(any path from settings.py module or automaticly generated path)
+           upcList - type set - value(All upcs currently being purchased from sl purchasing sheet) 
+
+           loop over every item in upcList
+                pathToDir - type string - value(path + current item)
+                tfDir - type bool - value(if pathToDir exists, True, else False)
+
+                if tfDir is False
+                    create directory using pathToDir
+        }
+
+    }
+    upcHtmlCreator(path, dfDict, upcList, suf, ext){
+        fields and psuedocode{
+            path - type string - value(any path from settings.py module or automaticly generated path)
+            dfDict - type dictionary - value(key: upcList | pair: column C(Item discription))
+            upcList - type set - value(All upcs currently being purchased from sl purchasing sheet)
+            suf - type string - value(any suffix from settings.py module)
+            ext - type string - value(any extension from settings.py module)
+            
+            loop over every item in upcList
+                pathToHtml - type string - value(path + (item + suf + ext))
+                fin - type file - value(file at settings.pathToHtmlTemp)
+                fout - type file - value(file at pathToHtml)
+
+                loop over every line in fin
+                    replace every '_UPC_' with item
+                    replace every '_DES_' with dfDict(item)
+                    replace every '_PRC_' with check_toolV1 dfDict(item)
+                close fin
+                close fout   
+
+        }
+
+    }
+
+}

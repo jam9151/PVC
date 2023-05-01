@@ -1,0 +1,23 @@
+Jesse McNary 3/20/2023
+
+import {os,sys,bardode EAN13, barcode.writer ImageWriter, bardode}
+
+Preface: barcodeCreator contains 1 function, its purpose is to create and save a barcode at a given path
+
+function(){
+    barcodeCreator(upcList, suf, path){
+        
+        fields and psuedocode{
+            upcList - type set - value(All upcs currently being purchased from sl purchasing sheet)           
+            suf - type string - value(any suffix from settings.py module)
+            path - type string - value(any path from settings.py module or automaticly generated path)
+           
+            loop over every item in upcList
+                upcPhoto - type string - value(the preperation value to save a barcode)
+                pathToUpcPhoto - type string - value(path + item + item + suf)
+                
+                save upcPhoto at pathToUpcPhoto
+            
+        }
+    }
+}
